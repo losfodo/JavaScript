@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title> 
+    </head>
+
+    <body>
+        <h1>total links em alert</h1>
+    	<nav>
+        	<a href="#">Brasil</a>
+            <a href="#">Argentina</a>
+            <a href="#">Uruguai</a>
+            <a href="#">Chile</a>
+        </nav>
+        <a href="#">paraguai</a><!--conta como 1 apenas pq fora do div-->
+        
+		<!-- scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>/*o $ esta conectado com #,, length mostra total de links*/    
+ alert("essa pagina contem " + $("nav a ").length + " links");/*apaenas elementos dentro nav com a*/
+        </script>   
+                
+     <script>
+         $(function(){/*first para só alterar a primeira opção ou odd'impar',, even'pares'*/
+            $("nav a:contains('Brasil')").css("color","red").css("display","block");/*mudar css cor geral usando jquery*/
+         })/*display block para um ficar embaixo do outro*//*contains escolher especificos*/
+     </script>           
+    </body>
+</html> <!util>

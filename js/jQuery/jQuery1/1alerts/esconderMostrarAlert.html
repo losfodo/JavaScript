@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(e){
+  $("#esconde").click(function(e){
+    $("#escondemostra").hide();/*esconde os paragrafos ao clicar*/
+
+    $("#ver").click(function(e){
+    	$("#escondemostra").show();/*show ação de ver os paragrafos div*/
+  });
+});
+  });
+</script>
+
+<script>
+	$(function(e){
+  $("#esconderver").click(function(e){
+    $("#escondemostra").hide();
+
+    $("#esconderver").click(function(e){
+    $("#escondemostra").toggle();/*para mostrar e esconder no mesmo botão usa toggle*/
+     });
+  });
+   });
+</script>
+
+</head>
+<body>
+
+<h1>click de botão e hide (esconder paragrafos)</h1>
+<div id="escondemostra">
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+</div>
+<input type="button" id="esconde" value=" click esconder"/>
+<input type="button" id="ver" value=" click mostrar"/>
+<input type="button" id="esconderver" value=" click mostrar esconder"/>
+
+<!alert test com jQuery>
+<script>
+	$(function(e){
+	alert("pronto, alert carregado");/*criar um alert com jQuery*/
+});
+</script>
+
+</body>
+</html><!util>
+<!---->
+<!>
+/**/
