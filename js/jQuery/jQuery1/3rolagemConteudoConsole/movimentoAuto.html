@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+		<style>
+			body { margin:0; padding:0; }
+            nav {
+				position:fixed;
+				width:78px;
+				padding:1px;
+				top:10px;
+				left:10px;
+				box-shadow:0 0 5px #000;
+				background-color:#000;
+				z-index:3;	
+			}
+			
+			nav ul { margin:0; padding:0; list-style:none }
+			nav li { 
+				list-style-type:none; width:78px; height:78px;
+			 	background-repeat:no-repeat; margin-bottom:1px;
+				cursor:pointer;
+			}
+			
+			nav li:first-child 	{ background-image:url(imagem/futebol.png) } /*imagem bola de futebol*/
+			nav li:nth-child(2) { background-image:url(imagem/basquete.png) }/*imagem bola de basquete*/
+			nav li:nth-child(3) { background-image:url(imagem/tenis.png) }/*imagem tenis*/
+		
+
+	#primeira {width:100%; height: 800px; background-color:aquamarine}
+	#segunda {width:100%; height: 800px; background-color:red}/*barra de cores*/
+	#terceira {width:100%; height: 800px; background-color:yellow}/*width comprimento pode diminuir em px*/				 </style>
+         
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+			$( function(e) { 
+
+function redimensionar(){/*ficar alinhado a altura*/
+var alturajanela = $(window).height();
+	$('#primeira').css('height',alturajanela);
+	$('#segunda').css('height',alturajanela);/*ficar com mesma altura os tres sempre mas se modifica*/	
+	$('#terceira').css('height',alturajanela);
+}
+		$('nav li:nth-child(2)').click( function(e){/*função de clicar*/
+			$('html,body').animate( {scrollTop:$('#segunda').offset().top}, 1000);/*movimenta para cima cobrindo tudo com blueviolet ou segunda*//*1000 interação =1segundo*/
+		});		
+			});	
+
+			$( function(e) { 	
+		$('nav li:nth-child(1)').click( function(e){/*função de clicar*/
+			$('html,body').animate( {scrollTop:$('#primeira').offset().top}, 1000);/*movimenta para cima cobrindo tudo com verde ou primeira*//*1000 interação =1segundo*/
+		});		
+			});	
+
+			$( function(e) { 	
+		$('nav li:nth-child(3)').click( function(e){/*função de clicar*/
+			$('html,body').animate( {scrollTop:$('#terceira').offset().top}, 1000);/*movimenta para cima cobrindo tudo com verde ou primeira*//*1000 interação =1segundo*/
+		});		
+			});	
+
+			$ (window).resize(function(e){
+
+			});	
+			redimensionar();				
+		</script> 
+
+		<script>
+			$( function(e) {/*para saber a quantidade de pixel necessario para cobrir toda a pagina*/
+				$('nav li:nth-child(2)').click( function(e){/*no caso foi 800px colocado no css #primeira e segunda*/
+			console.log( $('#segunda').offset().top);});});	/*no caso height*/
+		</script>  
+    </head>
+    <body>
+		<nav>
+        	<ul>
+            	<li id=""></li><!--bola a id é desnecessaria nas tres as modificaçoes se baiam em li ul nav-->
+            	<li id="tela2"></li><!--basquete-->
+            	<li id="tela3"></li><!--tenis-->
+            </ul>
+        </nav>
+
+        <div id="primeira"></div>
+        <div id="segunda"></div>
+        <div id="terceira"></div>
+    </body>
+</html><!util>

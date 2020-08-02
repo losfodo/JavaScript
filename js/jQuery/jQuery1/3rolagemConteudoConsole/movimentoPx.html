@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+		<style>
+			body { margin:0; padding:0; }
+            nav {/*ediçoes das telas ou imagem basquete*/
+				position:fixed;
+				width:78px;
+				padding:1px;
+				top:10px;
+				left:10px;
+				box-shadow:0 0 5px #000;
+				background-color:#000;
+				z-index:3;	
+			}
+			
+			nav ul { margin:0; padding:0; list-style:none }
+			nav li { 
+				list-style-type:none; width:78px; height:78px;
+			 	background-repeat:no-repeat; margin-bottom:1px;
+				cursor:pointer;
+			}
+			
+			/*nav li:first-child 	{ background-image:url(imagem/futebol.png) } /*primeira imagem não necessaria*/
+			nav li:nth-child(2) { background-image:url(imagem/basquete.png) } /*segunda imagem*/
+			
+			#primeira			{ width:300px; height:500px; background-color:#066 }/*altura e largura e cor da primeira e segunda do conteudo..*/
+			#segunda			{ width:300px; height:500px; background-color:#933 }
+					
+        </style>
+         
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>		
+			$( function(e) { 	/*gerando um evento..*/
+				$('nav li:nth-child(2)').click(function(e) {/*ao clicar a bola de basquete linha 27..*/
+                    $('html, body').animate( { scrollTop:300} , 1000 );/*scrollTop: 300 vai 300px para baixo, em 1000 equivale 1 segundos*/
+                });
+			});			
+		</script>   
+    </head>
+    <body>
+		<nav>
+        	<ul>
+            	<li id="tela1"></li> <!--tela1 bola de basquete-->
+            	<li id="tela2"></li>
+            </ul>
+        </nav>
+        
+        <div id="primeira"></div><!--representa o conteudo-->
+        <div id="segunda"></div>
+    </body><!---->
+</html>

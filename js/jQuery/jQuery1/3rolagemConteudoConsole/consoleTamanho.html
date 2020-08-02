@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        <style>
+			#janela { width:200px; height:1000px; background-color:#069; border:5px solid #000 }
+		</style>
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+			jQuery(document).ready(function() {/*medir a altura e largura no console*/
+                /*altura de acordo com tamanho da pagina abaixo*/
+					console.log("A altura da minha janela é " + $ (window).height());
+                    console.log("A largura da minha janela é " + $ (window).width());
+
+                    console.log("A altura da minha janela doc é " + $ (document).height());
+                    console.log("A largura da minha janela doc é " + $ (document).width());	
+                    /*medidas de acordo com tamanho da janela msm acima*/
+			});
+		</script>        
+    </head>
+
+    <body>
+
+		
+        <div id="janela">
+        
+        </div>
+
+    </body>
+
+</html>
