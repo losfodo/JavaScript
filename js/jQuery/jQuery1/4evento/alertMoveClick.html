@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+		$(function(){
+            $('#cursohtml').click( function() {/*ação de alert do botão conectado cada id*/
+                alert("clicou no botão html");/*com click*/
+            })
+            $('#cursocss').on("mouseover", function() {/*passando o mouse*/
+                alert("passou o mouse no botão css");
+                })
+
+            function mostrarMensagem(){
+            $('#cursojQuery').off("mouseover", mostrarMensagem) /*passando o mouse com off apenas uma vez*/
+                alert("passou o mouse no botão jQuery uma vez");
+                }
+                function mostrarMensagem2(){/*click jquery*/
+                    alert("clicou no botão jQuery")
+                }
+                $('#cursojQuery').on("mouseover", mostrarMensagem);
+                $('#cursojQuery').on("click", mostrarMensagem2);/*com click quanto quiser*/
+        })
+
+		</script>        
+    </head>
+
+    <body>
+        <input type="button" id="cursohtml" value=" click visivel HTML5" /><!--criando os dois botoes-->
+        <input type="button" id="cursocss" 	value="passar visivel CSS3" /><!--value é o que estara escrito no botão-->
+        <input type="button" id="cursojQuery"  value="1 vez visivel jquery click varias vezes" />
+        
+    </body>
+
+</html><! util>

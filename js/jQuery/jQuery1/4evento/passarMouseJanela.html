@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        <style>
+			#janela { width:300px; height:300px; background-color:#069; margin-top:20px }
+		</style>
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+            $(function(e){
+            $('#janela').hide;
+			$('#mostrar').hover(mostrarElemento,esconderElemento);/*conecta a id mostrar*/
+            });/*hover no caso de apenas passar o mouse por cima*/
+
+            function mostrarElemento(){/*mostra*/
+            $('#janela').show();
+        };
+        function esconderElemento(){
+            $('#janela').hide();/*esconde*/
+        };
+		</script>        
+    </head>
+
+    <body>
+        <input type="button" id="mostrar" 	value="Mostrar" /><!--exemplo inicial de um menu em jQuery ou mostrar de dados-->
+
+        
+        <div id="janela"></div>
+    </body>
+
+</html>
