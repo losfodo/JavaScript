@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        <style>
+			#janela { width:300px; height:300px; background-color:#069;  }
+			input[type="button"] { margin-bottom:20px }
+		</style>
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+			$( function(e) {			
+				$('#mostrar').click( mostrarObjeto )
+				$('#esconder').click( esconderObjeto )
+				$('#reverso').click( reverterObjeto )
+				$('#reversofade').click( reverterInstantaneo )
+			})
+			/*ação de baixo para cima*/
+			function esconderObjeto() {/*usando fadeOut no lugar de slideUp aparece instantaneamente*/
+			$('#janela').slideUp(500);/*slideup mostra janela*/
+			}
+
+			function mostrarObjeto() {/*usando fadeIn no lugar de slideDown aparece instantaneamente*/
+			$('#janela').slideDown(500);/*slidedown esconde a janela*/
+			}
+
+			function reverterObjeto() {/*500 seria uma ação 0,5 segundos*/
+			$('#janela').slideToggle(500);/*slidetoggles mostra e  esconde a janela*/
+			}
+
+			function reverterInstantaneo() {/*500 seria uma ação 0,5 segundos*/
+			$('#janela').fadeToggle(500);/*fadetoggles mostra e  esconde a janela instantaneamente*/
+			}
+
+		
+		</script>        
+    </head>
+
+    <body>
+        <input type="button" id="mostrar" 	value="Mostrar" />
+        <input type="button" id="esconder" 	value="Esconder" />
+        <input type="button" id="reverso" 	value="Reverso" />
+        <input type="button" id="reversofade" 	value="fade Reverso" />
+        
+        
+        <div id="janela"></div>
+    </body>
+
+</html><!util>
