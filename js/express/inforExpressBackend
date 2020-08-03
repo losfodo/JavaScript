@@ -1,0 +1,34 @@
+*********terminal e informaçioes express****************
+#express: é um servidor colocado tbm package.json
+#nodemon: ap para continuar executando constantemente um programa seja qual for as mudanças durante o code ele é reestartado,,fica monitando os arquivos qualquer mudança q tiver reinicia a aplicação e ja ler atualização mais nova dos arquivos
+*npm init -y     :  cria o arquivo package.json q descreve projetos e scripts e -y responde todas as perguntas com resposta padrão
+*npm i --save express     : terminal instalar a dependencia express
+*"dependencies": {
+    "express": "^4.17.1"   //4:major:maior-17minor:menores correçoes-1fix:correçoes de bugs
+*node index.js     : executa backend na porta 3000 como se fosse um npm started
+*npm i --save dev-nodemon     : disparador, responsavel por chamar a aplicação usando comando node e fica monitando os arquivos qualquer mudança q tiver reinicia a aplicação e ja ler atualização mais nova dos arquivos,colocando no package.json
+*indo em package.json em scripts remove "test": "echo \"Error:... colocando no lugar "start":nodemon, automaticamente ja sabe q esta dentro de node modules para startar
+*nodemon index.js    : executa backend index.js ou starta e sempre atualiza automaticamente + pratico
+*rs: no terminal reinicia manualmente se precisar
+*npm run start       :possivel startar desta forma tbm no terminal por causa do nodemon ou apenas 'npm start' tbm funciona
+
+#PM2     :é um gerenciador de processos ou microserviços e com ele lidar com variáveis ambientes, fazer log, saber o estado da aplicação se tornam tarefas simples.Você basicamente instala ele em sua máquina e ao invés de usar o node para executar sua aplicação, você usa o pm2.
+*npm i --save pm2     : instalar o pm2 dentro de node modules terminal
+*"production":"pm2 start index.js --name"       :colocar nos scripts do package.json, produção pm2 em arquivo index.js --name aplicação sera appx-backend quando startar com pm2
+*npm run production    : no terminal para startar pm2 estando sempre na pasta do projeto,,mostrando no terminal name , namespace,mode...
+*npm i -g pm2    : se quiser instalar pm2 de forma global com algumas facilidades comandos monitorando ou como esta backend em execução
+*pm2 monit     : no terminal abre uma interface com dados memoria,restarts aplicação de erro ou não,multiplas aplicaçoes,console,aplicação do backend entre outros..  'ctrl c':sai da tela
+*pm2 status   : terminal mostra msm tela inicial e status processo inicializaçoes...
+*pm2 show 0    : terminal mostra detalhes da aplicação 0 log de saida de erro,interpretador..
+*pm2 restart 0  : restarta a aplicação
+*pm2 restart appx-backend    :restarta aplicação tbm pelo nome do script package.json..
+*pm2 stop 0 : parar a aplicação
+*pm2 kill   :  mata a instancia do pm2 deixando de executar o pm2
+
+*postman:app faz servidores saida de console e localhost saida sem uso do browser se for get ou post
+*http://localhost:3000/clientes/relatorio    : digitanto no app escolhendo get se for ou post..
+*em postman digitando *http://localhost:3000/clientes/oquequiseraqui index.js linha42 sai no site com oquequiseraqui por causa :id e req
+
+*body-parser:colocado nas dependencias package.json responsavel por fazer parser formularios responsavel por ler e colocar no back end
+npm i --save body-parser: instalar body parser
+
