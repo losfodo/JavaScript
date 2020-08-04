@@ -1,0 +1,11 @@
++++++++++++++++console do site+++++++++++++++++++++++
+
+
+*document.querySelector('.cssnomeid')    :mostra o item css do texto no console identificado se quiser achar
+*document.querySelectorAll('.cssnomeidclass..') :mostra todos do css texto html and stuff
+*document.querySelector('[cssnomeidclass..]') :mostra o atributo do html com cochetes
+
++++++++++++++++console-elemento do site++++++++++++++++++++++++++++
+é possivel tirar alguma marcação do css apenas clicando em algum especifico
+<!---->
+/**/

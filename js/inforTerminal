@@ -1,0 +1,95 @@
+/*  ************* terminal visual code studio*****************
+ls : ver qual arquivos tem na pasta no terminal
+
+cd node: ir para pasta node
+cd funocionarios: ir pasta funcionarios
+cd nome da pasta vai para pasta q quer ir
+npm init:para definir como vai ser o seu arquivo pktjson
+npm init -y: mesma coisa mais reponde sim para todas as peguntas ou seja cria direto,,cria o arquivo package.json q descreve projetos e scripts
+pwd:mostra local onde esta
+npm i --save axios: save coloca dependencias do seu projeto,, cria axios:'cliente HTTP funciona tanto no browser quanto em node, API de XMLHttpRequest e http node' prog em si,,i é de install
+npm i: para instalar no package.json da pasta especifica  as dependencias serem startadas de qualquer mudança
+npm start: para começar projeto packagejson e mostra listra de funcionarios ou o que for startar rodar programa,,ou startar server em alguma porta..
+npm run dev:executa igual npm start os dois são o mesmo
+npm run prod: para executar exemplo algo de produção package.json 
+npm fix: caso venha um npm install com muitas vulnerabilidades
+
+npm i --save express@4.16.2 -E :i-install, save para salvar referencias express package-lock.json, express app prog @4.16 versão exata q quer baixar express, -E versão exata express 
+node src/servidor.js:mostra a porta q esta em uso o endereço servidor.js arquivo
+npm i --save-dev nodemon     : disparador, responsavel por chamar a aplicação usando comando node e fica monitando os arquivos qualquer mudança q tiver reinicia a aplicação e ja ler atualização mais nova dos arquivos, colocando no package.json
+npm i --save-dev nodemon@1.14.11 -E: colocar o app nodemon no package.json atraves terminal com uma -E versão anterior especifica em Devdependencies e nao dependencies
+npm i -g nodemon    : instalar nodemon de forma global desta forma
+npm i --save body-parser@1.18.2 -E:faz um parse no body da reqquisição e entregar dados corretos no lado do servidor body transformando em objeto colocado no json de dependencias
+rs: reinicia uma execução servidor 
+*npm run start       :possivel startar desta forma tbm no terminal por causa do nodemon
+^c: para parar um programa q esta rodando constantemente 
+node nomedoarquivo.js -a: deixa anonimo procurar a letra -a no arquivo entradaeSaida.js true o -a se procurar -b da false
+npm init: digitando qualquer coisa e vai criando algo se quiser + a fundo node
+
+***********react**************
+npm i -g create-react-app: modulo do node node_modules do react responsavel por criar versão inicial da aplicação react com build web pack, baixando packages e contributors apenas.
+create-react-app nomequalquertipoexercicios:cria projeto em si todo de react base exercicios q for 
+npm start : startar o projeto de react estando na pasta q quer startar o projeto
+ctrl C: para finalizar arquivos lotes s ou n
+npm i --save json-server@0.13.0 -E   :backend nao é react,definindo uma dependencia depois de ter criado package.json com comando npm init -y no terminal, criando assim package lock.json:'saber exatamente o pacote instalado' e node_modules
+npm i    : instala dependencias colocadas no package.json como bootstrap e axios entre o que for... 
+
+**********express*********************
+mkdir nomedapastaparacriar && cd exercicios-express:   criar uma pasta usado em linux tbm possivel no windows e tbm vai direto na pasta criada
+npm i --save express     : instalar a dependencia express
+node nomedoarquivo.js     : executando o backend em alguma porta... quase como npm start
+
+**********pm2***********
+*npm i --save pm2     : instala o pm2 dentro de node modules
+*npm run production    : no terminal para startar pm2 estando sempre na pasta do projeto
+*npm i -g pm2    : se quiser instalar pm2 de forma global com algumas facilidades comandos monitorando ou como esta backend em execução
+*sudo npm i -g pm2    : no inux ou linux se quiser instalar pm2 de forma global com algumas facilidades comandos monitorando ou como esta backend em execução
+*pm2 monit     : no terminal abre uma interface com dados memoria,restarts,aplicação do backend entre outros..
+*pm2 status   : terminal mostra msm tela inicial e status processo inicializaçoes...
+*pm2 show 0    : terminal mostra detalhes da aplicação 0 log de saida de erro,interpretador..
+/*************** terminal do windowns ou linux*****************
+
+ps -ax:processos q estão executando portas usar a porta livre ou ,, exemplo um node indetificada em seguida..
+kill -9 numerodaporta: mata o processo e voltar a executar na porta 8080 normalmente 
+
+get-executionpolicy: pare ver se o powershell esta restrito ou não se estiver tem q liber com..
+set-executionpolicy unrestricted : para remorer a restrição pergunta sim s ou nao n
+
+code .    : vai direto para o vscode
+ps      : mostra todos os processos executados no computador q pode executar uma porta linux
+clear  : limpa terminal cheio de codigo no linux
+/* ****************html e js terminal*******************
+npm i -g http-server : instala globalmente servidor http para node simples e facil p prover as paginas html e css
+sudo npm i -g http-server : no caso se for mac usa o sudo no começo
+Http-server . :Ativar servidor html criado para mudar porta ex -p 8080 ou -p9090 ou server padrão só clicar enter
+Http-server -c10: vai pegar e guardar os arquivos no cache por 10 segundos
+Http-server -c-1 .:para não armazenar no cache de forma alguma
+npm i --save express@4.16.3 body-parser@1.18.2 -E: cria o package-lock.json na versão -E exata e inclui o body parse junto
+npm i --save-dev nodemon:coloca nodemon na pasta q quer baixar nodemon na dependencia de desenvolvimento ele vai aparecer no packagejson
+nodemon server.js: startar o server nodemon depois de baixar com comando acima
+nodemon: startou só digitando isso no terminal,,do qual qualquer alteração ele automaticamente ja salva no arquivo
+*/
+
+
+/*     -------------infor extras-----------------
+
+*nodemon: ap para continuar executando constantemente um programa seja qual for as mudanças durante o code ele é reestartado,,fica monitando os arquivos qualquer mudança q tiver reinicia a aplicação e ja ler atualização mais nova dos arquivos
+*arquivos.json>> usam aspas duplas para informaçoes e colocar suas dependencias como express entre outros...
+*postman: faz servidores saida de console se for get ou post
+postman digitando URL:http
+*body-parser:colocado nas dependencias package.json responsavel por fazer parser formularios responsavel por ler e colocar no back end
+*express: é um servidor colocado tbm package.json
+*PM2     :é um gerenciador de processos e com ele lidar com variáveis ambientes, fazer log, saber o estado da aplicação se tornam tarefas simples.Você basicamente instala ele em sua máquina e ao invés de usar o node para executar sua aplicação, você usa o pm2.
+*multer: exemplo de uplod do json 
+*http-server:servidor http para node simples e facil p prover as paginas html e css
+*/
+
+/* ***********no code em si*************
+extension preview baixado:comand shift v ou ctrl shift v: da um preview de sua programação criada ao lado
+comand barra: coloca a linha de codigo como comentario ou seleciona varias linhas e aperta comand barra se clica denovo remove do comentario
+ctrl p: abra uma barra digitavel onde vc escreve o arquivo q quer achar
+*/
+
+*********ignorar no git.iginore********
+packagejson se quiser, mas importante colocar
+ignorar totalmente node_modules
