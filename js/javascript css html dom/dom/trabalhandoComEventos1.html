@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <a espera-um-pouco href="https://google.com.br" onclick="navegarEm5s(event)">Google</a><!--onclick evento 5s..-->
+    </div>
+    <script>
+        function navegarEm5s(e) {//para navegar no google depois de 5 segundos
+            e.preventDefault()//preventDefault:evento de pause pos clique
+            console.log('Saindo em 5s...')//saida console de aviso
+            setTimeout(() => {//timeout:tempo
+                const link = e.target//e:evento.target:proprio link do site conexão feita
+                window.location.href = link.href//href site google
+            }, 5000)//5000=5segundos
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s  //funciona tbm e mais rapido nao precisa de onclick acima
+
+        const a = document.querySelector('[espera-um-pouco]')//atributo personalizado criado, queryselector para editar pelo js
+        a.onclick = navegarEm5s//aplica onclick 5segundos,,facil e rapido
+    </script>
+</body>

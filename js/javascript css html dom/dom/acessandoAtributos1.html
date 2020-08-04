@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector('img')//acessa a imagem queryselector img
+        console.log('getAttribute', img.getAttribute('src'))//acessa atributos do elemento imagem:link
+        console.log('src', img.src)//traz a url
+        console.log('["src"]', img['src'])//outra forma trazer url imagem
+        console.log('alt', img.alt)//alt logo img
+
+        console.log('Elemento "img"...............')//separar apenas
+        console.log('NodeType', img.nodeType)//nodetype console elemento atributo
+        console.log('NodeName', img.nodeName)//ver qual nodename:tipo img
+
+        const src = img.getAttributeNode('src')//getAttributeNode:da o nó do atributo
+        console.log('Atributo "src"...............')
+        console.log('NodeType', src.nodeType)//tipo é 2 
+        console.log('NodeName', src.nodeName)//tipo src
+        console.log('NodeValue', src.nodeValue)//value da img ...
+
+        const link = document.querySelector('a')//conectar a link texto
+        console.log('Elemento "a"...............')
+        console.log('href', link.href)//gera o link de acesso tipo endereço acesso
+        console.log('firstChild.nodeType', link.firstChild.nodeType)//tipo de nó q representa..tipo3 texto
+        link.firstChild.nodeValue = 'Novo Texto'//aterar o nome do link cod3r para novo texto no site
+        link.innerHTML = 'Novo Texto2'//altera outra forma texto no site
+    </script>
+</body>
+
+</html>

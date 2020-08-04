@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+     const div = document.querySelector('div')//editar pelo js a div
+        const classes = div.classList//classList:adicionar remover,,add remove,, alterna ,, faz laço for
+        classes.add('destaque')//add const destaque do css
+        classes.remove('destaque')//para remover destaque do css
+        classes.toggle('destaque')//alterna se removeu antes coloca agr o css destaque
+        console.log(classes.contains('destaque'))//se contem ou não.. true
+        console.log(classes.length)//quantidade de classes..1
+        classes.toggle('destaque')//inversa de length
+        console.log(classes.length)//quantidade de classes..0
+
+        classes.add('destaque1')//cria nova..
+        classes.add('destaque2')
+        console.log(classes.length)//fica 2 
+
+        for(let c of classes) {
+            console.log(c)//no terminal site.. dir(document.querySelector('div').classList)
+        }//sai..domtokenlist 2
+
+        classes.forEach(c => console.log(c))//foreach esta associado e transformam em array se quiser,,no console site:classes.foreach..disponivel
+    </script>
+</body>
+
+</html>

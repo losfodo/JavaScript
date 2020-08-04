@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+                <option value="pt-br">Português (Brasil)</option>
+                <option value="en-us">Inglês (Americano)</option>
+            </select>
+        <button wm-submit>Pesquisar</button><!--wm-submit:intercepta a submisão de um formulario-->
+    </form>
+    <script>
+        // const submit = document.querySelector('[wm-submit]')//conecta ao js
+        // submit.onclick = function (e) {//coloca evento onclick
+        //     e.preventDefault()//preventDefault:para o procedimento padrão nao pesquisa nada
+
+        //     const form = e.target.parentNode//target.e:pesquisar botão,parentNode:o que envolve o formulario
+        //     const formData = new FormData(form)//submeter ao formulario com formdata
+        //     formData.append('ajax', true)//adiciona uma nova informação no formdata
+        //     console.log(formData.get('q'))//da o valor q ta dentro do campo do site:windowns
+        //     console.log(formData.has('hl'))//pesquisa e da true ou false
+
+        //     for (let dado of formData) {//usa se let nao for
+        //         console.log(dado)//para sair os dados no console do site detalhes da pesquisa
+        //     }
+        // }
+        //console.log(window.dado)//add algo no contexto global
+
+        const form = document.forms[0]//ao inves queryselector usa form
+        form.onsubmit = function (e) {//ao inves de onclick usa onsubmit
+            e.preventDefault()
+
+            const form = e.target
+            const formData = new FormData(form)
+            formData.append('ajax', true)
+            console.log(formData.get('q'))
+            console.log(formData.has('hl'))
+
+            for (let dado of formData) {
+                console.log(dado)//sai igual o acima só q mais resumido
+            }
+        }
+    </script>
+</body>

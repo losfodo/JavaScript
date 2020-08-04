@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    
+    <script>              
+    document.querySelector('#primeiro').classList.add('destaque')//serquilha selecionado#pelo id o elemento
+
+const selecionar = seletor =>//selecionar> //console site-dir(document.querySelectorAll('div'))..retorna node list
+    document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))//a todos seletor add destaque css
+const deselecionar = seletor =>
+    document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))//remove todos agr
+
+selecionar('div')//seleciona todos destaque
+
+deselecionar('*')//remove todos do destaque css
+selecionar('.terceiro.ultimo')//seleciona ultimo
+
+deselecionar('*')//remove todos denovo
+selecionar(':not(#primeiro)')//not:não primeiro.. 2 e 3 são selecionados
+
+deselecionar('*')
+selecionar(':nth-child(1)')//seleciona primeiros filhos 1 elemento filho do body e 3 span primeiro ele
+
+deselecionar('*')
+selecionar('div:nth-of-type(1)')//elemento div id 1 seleciona, outros são span e apenas div
+
+deselecionar('*')
+selecionar('[wb-attrib]')//seleciona span 3
+    </script>
+</body>
+</html>

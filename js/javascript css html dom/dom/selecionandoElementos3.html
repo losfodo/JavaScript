@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #03</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search"><!--action:site conecta ao google faz ação-->>
+        <input type="text" name="q" placeholder="Digite o termo..."><!--digita o que quer pesquisar-->
+        <select name="hl"><!--h1:letra maior de site-->
+            <option value="pt-br">Português (Brasil)</option><!--pt-br ou ingles linguagem de pesquisar opçoes-->
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button>Pesquisar</button><!--pesquisar-->
+    </form>
+    <script>
+        console.log(document.forms)//traz array de todos os formularios no console
+        console.log(document.forms[0])//pega de indice 0 'pesquisa'
+        console.log(document.getElementsByName('pesquisa'))//getelementbyname traz node list
+        console.log(document.pesquisa)//traz o formulario pesquisa no console
+        console.log(document.pesquisa.q)//pegar name q:query consulta do input de digite o termo.. no console
+        document.pesquisa.q.value = 'Linux Brasil'//altera o campo para linux brasil
+        document.pesquisa.hl.value = 'en-us'//hl:hostlanguage en-us americana
+        console.log(document.pesquisa.hl.selectedIndex)//mostra no console o indice q esta selecionado para consulta 0:portugues  ou 1:ingles
+    </script>
+</body>
+
+</html>

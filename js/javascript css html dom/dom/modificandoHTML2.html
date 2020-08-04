@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')//cria const body para editar div do html com js no site
+        div.innerHTML = 'Texto Alterado'//substitui texto inicial a texto alterado
+        // div.outerHTML = 'Texto Alterado' //substitui conteudo  todo div elemento vira paragrafo
+        div.insertAdjacentHTML('beforebegin', '<p>Antes Início</p>')//beforebegin: coloca antes da div e fora dela no site..
+        div.insertAdjacentHTML('afterbegin', '<p>Depois Início</p>')//coloca depois da div e dentro  no site..
+        div.insertAdjacentHTML('beforeend', '<p>Antes Fim</p>')//dentro da div mais no final
+        div.insertAdjacentHTML('afterend', '<p>Depois Fim</p>')//no final e fora da div
+
+        // somente texto (sem tags)
+        console.log(div.innerText)//coloca no console do site o que esta no site em si
+    </script>
+</body>
+
+</html>

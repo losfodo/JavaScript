@@ -1,0 +1,69 @@
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #03</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+        }
+        
+        .esquerda {
+            height: 100vh;
+            width: 50%;
+            background-color: coral;
+        }
+        
+        .direita {
+            height: 100vh;
+            width: 50%;
+            background-color: cornflowerblue;
+        }
+        
+        .item {
+            border: solid 5px black;
+            background-color: darkgrey;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            margin: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="esquerda" wm-dropzone>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div class="direita" wm-dropzone></div>
+    <script>
+        const items = document.querySelectorAll('[wm-dropzone] .item')//querySelectorAll:edita js  class item,,wm-dropzone:atributo com items?
+        items.forEach((item, index) => {//pega item e index com foreach:permite executar uma função para cada item de um array
+            item.draggable = true//draggable:para arrastar item
+            item.id = item.id || `draggable-item-${index}`//definir item tem q ter id..||ou
+            item.ondragstart = e =>//ondragstart:eventoacionar, ocorre quando um elemento arrastavel'draggable' é arrastado
+                e.dataTransfer.setData('item-id', e.target.id)//e:evento data recebe item-id
+        })//DataTransfer é usado para guardar os dados que estão sendo arrastados durante uma operação de Drag e Drop (arrastar e soltar). Ele pode guardar um ou mais itens de dados
+       //setData () define os dados de arrasto da operação de arrastar para os dados e o tipo especificados.
+        const dropzones = document.querySelectorAll('[wm-dropzone]')//wm-dropzone:local onde vai receber elementos q arrastou
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault()//preventDefault:para nao tratar de evento ainda
+            dropzone.ondrop = function(e) {//ondrop:solta item onde quer arrastar
+                const id = e.dataTransfer.getData('item-id')//getdata:pega no ondrop
+                const item = document.getElementById(id)//item recebe id
+                // e.target.appendChild(item)//local target q solta o elemento de um lado para o outro e tbm dentro de um a outro
+                dropzone.appendChild(item)//só solta onde tem dropzone mas nao coloca um dentro da outra
+            }
+        })
+    </script>
+</body>
+
+</html>

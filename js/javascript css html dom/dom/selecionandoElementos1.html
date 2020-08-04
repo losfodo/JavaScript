@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    
+    <script>              
+     document.getElementById('primeiro').classList.add('destaque')//coloca o id da div destaque ele realça um pouco pois conectado css
+
+    const divs = document.getElementsByTagName('div')//trata como uma listra, ver console digita dir(divs) para ver infor site 'html colection'
+    Array.from(divs).forEach(e => e.classList.remove('destaque'))//pega todas as divs transforma em array para remover da class destaque
+
+     const divsArray = [...divs]//chama todas as divs,,splas transformar html colection em array,,[...divs:fazer oq array permite map reduze forEach]
+     divsArray.forEach(e => e.classList.add('destaque'))//aplicando class destaque css
+
+     const ultimosElementos = document.getElementsByClassName('ultimo')//ultimo elemento,,digitando no console site: dir(ultimoElemento) aparece htmlcolection
+     for(let e of ultimosElementos) {//e pode fazer alguma ação q quiser
+     e.classList.remove('destaque')//remove destaque do ultimo elemento apenas
+}
+    </script>
+
+</body>
+</html>

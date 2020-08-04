@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('#compras')//manipular elemento html pelo js
+
+// somente leitura:nao pode alterar o html com esses comandos
+console.log(lista.attributes)//atributos da lista, todos 
+console.log(lista.attributes[0])//primeiro compras no caso
+console.log(lista.attributes.id)//compras
+console.log(lista.attributes[1])//escritorio
+console.log(lista.attributes.destino)//escritorio
+console.log(lista.attributes[2])//data urgencia
+console.log(lista.attributes['data-urgencia'])//5
+    </script>
+</body>
+
+</html>

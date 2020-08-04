@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')//cria const body para editar body do html com js no site
+
+const div1 = document.createElement('div')//criou uma div
+div1.classList.add('destaque')//add classe destaque css
+div1.innerHTML = 'Primeiro'//conteudo escrito no site da div
+
+const div2 = document.createElement('div')//cria uma segunda div
+div2.setAttribute('wm-atributo', 'valor')//colocar valor seleciona atributo o que for
+div2.innerHTML = 'Segundo'//escrito site
+
+const p = document.createElement('p')//cria um paragrafo com js
+p.innerHTML = 'Terceiro'//coloca terceiro no site..
+const div3 = document.createElement('div')//cria div 3
+div3.appendChild(p)//coloca no ultimo elemento a div3 
+
+body.appendChild(div1)//saida no site a div 1 primeiro
+body.appendChild(div2)//saida segundo..
+body.appendChild(div3)//saida terceiro com filhos paragrafos extras
+
+const texto = document.createTextNode('Antes...')//colocar antes no site
+div3.insertBefore(texto, div3.childNodes[0])//posição na div3 que que colocar um texto antes0 ,, ou depois...
+
+const div4 = div3.cloneNode(true)//cria clone div4 igual a 3
+body.appendChild(div4)//coloca no site o clone,, as cores são aplicadas no css pela ordem do css
+//body.removeChild(div3)//remove o clone nesse comando
+    </script>
+</body>
+
+</html>

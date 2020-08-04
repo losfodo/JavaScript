@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {//nao é uma arrow function
+            console.log(this)//arrow function possui uma sintaxe mais curta quando comparada a uma expressão de função (function expression) e não tem seu proprio this
+        }
+
+        HTMLCollection.prototype.log = log 
+        HTMLElement.prototype.log = log//retornam no log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')//seleciona a listra div e ul do html
+        lista.parentNode.log()//parentnode só esta disponivel por causa prototype anteriores
+        lista.childNodes.log()//childnodes: são as li, no console tem text li por causa dos espaço entre nomes li
+
+        const primeiro = lista.firstChild//primeiro 
+        primeiro.log()//saida primeiro sai text pelo espaços em branco
+        primeiro.nextSibling.log()//proximo elemento depois text é pedro
+
+        const ultimo = lista.lastChild//pegar o ultimo q é texto tbm
+        ultimo.log()
+        ultimo.previousSibling.log()//usa previosSibling para pegar bia
+
+        lista.children.log()//assim não vem os text e sim os li em html colection bem melhor
+        lista.firstElementChild.log()//traz o primeiro elemento da lista li melhor tbm
+        lista.lastElementChild.log()//ultimo li bia
+        lista.parentNode.previousElementSibling.log()//traz elemento irmão no caso inicio
+        lista.parentNode.nextElementSibling.log()//pega elemento fim agora
+
+        document.querySelectorAll('div ul li').log()//pegar diretamente o que vc quer mais direto melhor opção no caso
+    </script>
+</body>
+
+</html>

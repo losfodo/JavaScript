@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')//div editar js
+        item.style.position = 'absolute'//css no js absolute:se utiliza do ponto superior esquerdo de outros elementos. div com position absolute referencia sua posição pelo div mais próximo que o envolve e que também tenha um position definido.
+
+        item.onmousemove = e => {//função arrow onmousemove:ponteiro do mouse se movimentar dentro de um elemento div.
+            const item = e.target //item recebe target
+            item.style.cursor = 'move'//cursos do mouse move a div como quiser
+            if (e.buttons) {//se tiver clicado valor diferente de zero true
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`//style.top:seta posição no topo onde esta,e:evento.clienty '- menos' altura divi /dividido 2==move para cima e para baixo a div no site
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`//para lado e para outro
+            }
+        }
+    </script>
+</body>
