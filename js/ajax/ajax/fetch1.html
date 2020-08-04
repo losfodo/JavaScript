@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>//substituto moderno do xmlhttpRequest
+        const url = 'dados/estados.json'//define constante do json
+        fetch(url)//api
+            .then(resp => resp.json())//retorna uma promisse.. colocando.json abaixo da os estados
+            .then(estados => {//estados,, resumido
+                const itens = estados.reduce(//reduce:reduz” os itens de um vetor a um valor único.
+                    (html, estado) => html + `<li>${estado.nome}</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })//saida do site tem igual ao xmlRequest3 e mais resumido
+    </script>
+</body>

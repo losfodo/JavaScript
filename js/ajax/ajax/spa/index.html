@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Mini SPA</title>
+    <link rel='stylesheet' href='../css/estilo.css'>
+    <style>
+        nav {
+            font-size: 2em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FFF;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body class="conteudo">
+    <nav>
+        <a href wm-link="series.html" wm-destino=".pagina">Séries</a><!--wm-link:ver qual propriedade é carregada,,wm-destino:local q esta conteudo da pagina--> |
+        <a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a><!---->
+    </nav>
+    <div class="pagina"></div><!--wm-destino pagina conectado class pagina-->
+    <script>
+        function navegarViaAjax(url, seletor, push = true) {//função(parametros,,seletor:,,push = true para ter armazenamento no site de cada clique)
+            if(!url || !seletor) return //se não tem url e nem seletor nao faz nada no servidor
+            const elemento = document.querySelector(seletor)//coloca seletor q recebeu pelo parametro
+            fetch(url)//fazer a requisição ajax usando fetch com url
+                .then(resp => resp.text())//primeiro then resposta.text q é html o text
+                .then(html => {//se tem html
+                    elemento.innerHTML = html
+                    if(push) {//se push for verdadeiro
+                        history.pushState({ seletor }, "Página Ajax", url)//estado passar seletor:hora q voltar do browser,,titulo pagina,urlurl no historico
+                    }
+                })
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {//pega all todos os links wm-link,,faz foreach para cada um deles
+            const url = link.attributes['wm-link'].value//pega valor armazena url
+            const seletorDestino = link.attributes['wm-destino'].value//pega destino
+
+            link.onclick = e => {//intercepta envento clique
+                e.preventDefault()//preventDefault:para nao ter navegação padrão
+                navegarViaAjax(url, seletorDestino)//pegou ambos e funciona no site
+            }
+        })
+
+        window.onpopstate = e => {//tira elemento da pilha de estado de navegação
+            if(e.state) {//se e.state estiver presente
+                navegarViaAjax(window.location.href, e.state.seletor, false)//para nao fazer push false clicando no voltar do browser
+            }
+        }
+    </script>
+</body>

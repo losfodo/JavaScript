@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post"><!--method das opçoes-->
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        document.usuarioForm.onsubmit = async e => {//onsubmit é um evento que acontece quanto tenta "submter" o formulário, ou seja, por exemplo quando clica num botão submit 
+            e.preventDefault()//async:para q funcione,,preventDefault:parar comportamento padrão de submisão e vc msm mandar essa submissão
+
+            const form = e.target//elemento q disparou o evento
+            const data = new FormData(form)//manipular dados e novos formulario
+            data.append('ajax', true)//add um dado'nao serve pra nada muito mas add muda elementos da submissão formulario'
+
+            const options = {//obj configuraçoes fetch
+                method: form.method,//metodo q ira passar
+                body: new URLSearchParams(data)//body:coloca dados do formulario na submisão
+            }
+
+            const resultado = document.getElementById('resultado')//elemento result
+            // fetch(form.action, options)//action html
+            //     .then(resp => resp.json())
+            //     .then(json => {//pega json
+            //         resultado.innerHTML = JSON.stringify(json)//stringify() converte valores em javascript para uma String JSON
+            //     })
+            //     .catch(e => {
+            //         resultado.innerHTML = e
+            //     })
+            
+            try {
+                const resp = await fetch(form.action, options)//await é utilizado para esperar por uma Promise
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e) {//recebe um erro catch
+                resultado.innerHTML = e //erro manda usuario qfor
+            }
+        }
+    </script>
+</body>

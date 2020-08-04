@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>//conectar a estados.xml
+        function ajax(config) {//ajax recebe configurações
+            const xhr = new XMLHttpRequest()//cria new XMLHttpRequest (XHR) é uma API disponível em linguagens de script para navegadores web tais como JavaScript. É utilizada para enviar requisições HTTP ...
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onreadystatechange = e => {//onreadystatechange:quando status da requisição mudar
+                if (xhr.readyState === 4) {//readyState:0=inutilizada,1=server estabelecido,2=recebida,3=processado request,4=finalizada
+                    if (xhr.status === 200) {//se for 200 sucesso..
+                        config.sucesso(xhr.responseXML)//responseXML: response com xml passado sucesso da um obj todo resolvido mini dom
+                    } else if (xhr.status >= 400) {//senão >= 400 erro
+                        config.erro({
+                            codigo: xhr.status,//codigo erro e texto
+                            texto: xhr.statusText
+                        })
+                    }
+                }
+            }
+
+            xhr.send()//chama a função send para enviar a requisição
+        }
+
+        ajax({//chamando a função ajax
+            url: "dados/estados.xml",//parametros.. url para receber xml
+            metodo: "get",//metodo sera get
+            sucesso(resposta) {//sucesso para receber resposta
+                console.log(resposta)
+                const estados = resposta.getElementsByTagName('estado')//tag estado do estados.xml
+                const itens = Array.from(estados).reduce(//converte para um array, chama reduce:reduz” os itens de um vetor a um valor único. sobre array
+                    (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, ''//paramet(html:texto gerado acumulador,estados:cada um ),estado cada 1 e atribuites ..
+                )//'':reduce começa passar versão vazia inicialmente necessario
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)//insertAdjacentHTML analisa o texto especificado como HTML ou XML e insere os nós que resultam na árvore DOM em uma posição especificada.
+            },//beforeend:Dentro do elemento, após seu último filho (childNode) .
+            erro(e) {//caso erro..
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)
+                document.body.appendChild(msg)
+            }
+        })
+    </script>
+</body>

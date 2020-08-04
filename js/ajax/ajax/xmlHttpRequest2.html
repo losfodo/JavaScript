@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        input[type=file] {
+            display: flex;
+            margin: 10px;
+            padding: 40px;
+            font-size: 40px;
+            background: crimson;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <input type="file" name="arquivo" />
+    <div class="progresso"></div>
+
+    <script>//front end... //função de fazer upload de um arquivo video imagem grandes no site
+        function ajaxUpload(config) {
+            const xhr = new XMLHttpRequest()
+
+            if (xhr.upload) {//se estiver presente xhr pode fazer upload
+                xhr.upload.onprogress = e => {//onprogress:monitorar o progresso do upload
+                    const atual = e.loaded//porcentagem atual total...
+                    const total = e.total
+                    const percentual = Math.floor(atual / total * 100)//porcentagem q ja carregou upload
+                    config.progresso({ atual, total, percentual })//apartir de config receber progresso
+                }
+            }
+
+            xhr.open("post", config.url, true)//metodo post,url,true assincrono
+            xhr.send(config.formData)//recebe formdata colocando arquivo selecionado
+        }
+
+        document.querySelector('input[type=file]').onchange = e => {//selecionar qualquer elemento possui propriedade type,,OnChange‎: ‎muda o valor do elemento
+            const formData = new FormData()//cria um formData:Retorna uma matriz de todos os valores associados a uma determinada chave de dentro de um FormData
+            const inputFile = e.target//e.target: pega name: arquivo q foi colocado no proprio input
+            formData.append(inputFile.name, inputFile.files[0])//append()Interface FormData  adiciona um novo valor dentro de uma chave existente dentro do objeto FormData ou  adiciona a  chave caso ainda não exista.,,recebe 0 primeiro arquivo pegar
+
+            ajaxUpload({//passando obj dentro config os parametros...
+                url: "upload",
+                formData: formData,
+                progresso(dados) {//div class progresso
+                   const progresso = document.querySelector('.progresso')//Retorna uma lista de elementos presentes no documento seletores especificado progresso
+                   progresso.innerHTML = JSON.stringify(dados) //innerHTML:executa uma troca de conteúdo em uma tag “div” especificada q manipula pagina sem carrega la novamente com ajax
+                }//stringify() converte valores em javascript para uma String JSON
+            })
+        }
+    </script>
+</body>

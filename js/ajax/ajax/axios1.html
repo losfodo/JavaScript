@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Axios #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/axios.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'//cria cosnt url
+        axios(url).then(resp => {//chama o axios,na função then recebe a resposta
+            const itens = resp.data.reduce(//data é obj nao json e reduce p peggar html fazer listra e passar reduce
+                (html, estado) => html + `<li>${estado.nome}</li>`, ''//com reduce converter para uma listra,,
+            )
+            document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)//passa os itens q calculou com função reduce
+        })//mais simples q fetch
+    </script>
+</body>

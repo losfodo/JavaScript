@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Axios #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/axios.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Axios Get/Post</h1>
+    <div id="get"></div>
+    <div id="post"></div>
+
+    <script>//site q sai par ou impar a numeraçao q for
+        function exibirResultado(id, dados) {//função 2 parametros id do get e post e dados dessa id
+            const texto = JSON.stringify(dados)//converter obj json para uma string
+            document.getElementById(id).innerHTML = texto//pega id coloca texto linha 18
+        }
+
+        // axios('parOuImpar?numero=10').then(resp => exibirResultado('get', resp.data))
+        
+        axios.get('parOuImpar', {//chama axios faz get parimpar
+            params: {
+                numero: 6//trara resultado par no caso,se for 5 impar
+            }
+        }).then(resp => exibirResultado('get', resp.data))//get:id,resp.data:resposta servidor
+
+        axios.post('formulario', {//formulario parametros abaixo simples
+            nome: 'João',
+            sobrenome: 'Silva'
+        }).then(resp => exibirResultado('post', resp.data))//saida post
+    </script>
+</body>

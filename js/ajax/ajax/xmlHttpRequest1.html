@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax(config) {//função ajax recebe configurações dentro tem parametros..url,susses,erro
+            const xhr = new XMLHttpRequest()//cria new XMLHttpRequest (XHR) é uma API disponível em linguagens de script para navegadores web tais como JavaScript. É utilizada para enviar requisições HTTP ...
+            xhr.open(config.metodo, config.url, true)//abrir uma requisição do tipo get,config.metodo:mais flexivel se for metodo post get..., e receber dentro config parametro chamado url,true=assincrona
+
+            xhr.onload = e => {//evento onload = função
+                if (xhr.status === 200) {//se xhr.staus for igual a 200
+                    config.sucesso(xhr.response)//passa isto sucesso com resposta q recebeu
+                } else if (xhr.status >= 400) {//se for maior ou igual 400
+                    config.erro({//da erro
+                        codigo: xhr.status,//passando codigo do erro
+                        texto: xhr.statusText//e statustext erro
+                    })
+                }
+            }
+
+            xhr.send()//chama a função send para enviar a requisição
+        }
+
+        function criarTabela(estados) {//função principal criar tabela(estados abaixo)
+            const linhas = estados.map(estado => {//usando dom,,renderiza tabela, lista,,fazendo map transforma array de estados em conjunto de elementos da dom
+                const tdId = document.createElement('td')//tdId:table data
+                tdId.innerHTML = estado.id//innerHTML:manipular texto sem q seja carregada automatico no ajax nos estados.json
+
+                const tdNome = document.createElement('td')//td:é linha celula linha menor html
+                tdNome.innerHTML = estado.nome
+
+                const tdSigla = document.createElement('td')
+                tdSigla.innerHTML = estado.sigla
+
+                const tr = document.createElement('tr')//tr q é a linha em html divide
+
+                tr.appendChild(tdId)//add as tres celulas td em tr
+                tr.appendChild(tdNome)
+                tr.appendChild(tdSigla)
+
+                return tr //retorna tr
+            })
+
+            const tabela = document.createElement('table')//createElement:cria o elemento HTML especificado
+            linhas.forEach(linha => tabela.appendChild(linha))//adiciona cada uma das linhas criadas apartir map dom na tabela
+            document.body.appendChild(tabela)//add a tabela no body
+        }
+
+        ajax({//chama função ajax
+            url: "dados/estados.json",//parametros...
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta)//tratando a resposta a cima
+                criarTabela(estados)//conectar estados.json
+            },
+            erro(e) {//add função erro caso de algum problema
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)//mensagem e codigo erro
+                document.body.appendChild(msg)//coloca corpo site erro
+            }
+        })
+    </script>
+</body>

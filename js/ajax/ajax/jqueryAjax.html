@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Ajax com jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>jQuery Get/Post</h1>
+    <div id="get"></div><!--iram fazer um get e post nas duas divs-->
+    <div id="post"></div>
+
+    <script>
+        function exibirResultado(id, dados) {//igual ao usado no axios2
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+
+        $.ajax({//e aqui chama a parte do jquery, referenciado apartir do dolar
+            url: 'parOuImpar',//parametros url e dados
+            data: {
+                numero: 6//se for impar ou par o numedo sai no site
+            },
+            success(data) {
+                exibirResultado('get', data)//saida resultado da data
+            }
+        })
+
+        $.ajax({//invoca ajax jquery para post agr
+            url: 'formulario',
+            method: 'post',//methodo post
+            data: {
+                nome: 'João',//data dados abaixo
+                idade: 40
+            },
+            success(data) {//success da data
+                exibirResultado('post', data)//id é 7 nao sei pq
+            },
+            error(e) {//erro sai no site detalhes
+                exibirResultado('post', e)
+            }
+        })
+    </script>
+</body>
