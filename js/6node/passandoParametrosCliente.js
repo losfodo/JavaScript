@@ -1,0 +1,2 @@
+const saudacoes = require('./passandoParametros')('Ana', 'Lucas', 'João')//conectando com require(./nomearquivo)(parametros nomes...)
+console.log(saudacoes)//saida.. [ 'Boa semana Ana!', 'Boa semana Lucas!', 'Boa semana João!' ]
