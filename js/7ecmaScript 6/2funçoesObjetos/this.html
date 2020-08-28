@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script type="text/babel">
+
+        var jogador = { //cria objeto chamado jogador..
+            nome:"Messi",  //com nome messi..
+            habilidades:["Chutar","Diblar","Correr","Fazer gols"],  //como é mais de uma habilidade cria um array dentro..
+            escreverHabilidades: function(){//cria uma função sobre habilidades..
+                   console.log(this.nome); //quando coloca this ele indentifica q refere-se ao nome messi linha 8, significa q quer falar da propriedade deste elemento jogador
+                   
+                   var _this = this; //transfere elementos _this para this ou cria nome para this assim como habilidades=skill,,pq this direto daria erro por q esta dentro de uma função interna
+                   this.habilidades.forEach(function(skill){ //forEach=percorrer propriedade deste elemento e executa uma dada função em cada elemento de um array,,pega habilidades com forEach e function 'Skill'...
+                        console.log(_this.nome + "é craque em " + skill); //gera a saida de todas as habilidades
+                    });//note q parenteses é fechado apenas aqui de function;
+                }
+        }
+        jogador.escreverHabilidades() //saida da função com this
+
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

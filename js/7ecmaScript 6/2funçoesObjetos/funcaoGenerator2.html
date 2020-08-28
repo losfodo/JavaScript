@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser-polyfill.js"></script>
+
+        <script type="text/babel">
+        
+        function* baterNoLiquidificador(ing) { // funcão generator
+            for ( var i=0; i<ing.length;i++){ //for=loop, começa 0, enquanto i for menor q 0, i++ incrementa
+            yield ing[i]; //criar loop baterNoLiquidificador com lenght=comprimento de uma string
+            }
+        }
+            
+        var ingredientes = baterNoLiquidificador(["leite", "banana", "nescau","aveia"]);//array do loop for dados
+
+        var fazerVitamina = setInterval(function() { //setInterval serve para executar uma função ou instrução várias vezes em um determinado intervalo de tempo
+
+            var vitamina = ingredientes.next();//next=método retorna um objeto com duas propriedades donee value. Você também pode fornecer um parâmetro ao nextmétodo para enviar um valor ao gerador.
+            if (vitamina.done ){ //se,,quando tiver done executa o setinterval
+               clearInterval (fazerVitamina); //Use clearInterval () para parar o tempo saindo por ultimo ("Acabou, sua vitamina esta pronta.") abaixo..
+               console.log("Acabou, sua vitamina esta pronta.")
+            }else{//se não... sairia sem a mensagem acima acredito eu
+                 console.log(vitamina.value); //value=valores das propriedades de um dado objeto
+            }
+
+        }, 1000)//1000=milisegundos ou seja 1 segundo esse é intervalo de tempo serinterval
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

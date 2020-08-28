@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+
+        <style>
+    section div{
+        height: 100px;
+        width: 100px;
+        background:blue;
+        border-radius: 50%; /*deixar as bordas arredondadas em 50%*/
+        float: left; /*ficar um do lado do outro*/
+        margin: 5px;/*distanciar um pouco*/
+        cursor: pointer;/*Usado quando pairando o cursor do mouse sobre links, tipicamente uma mão aponta dedo*/
+
+    } 
+        </style>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script type="text/babel">
+        /*for(var i=0;i<=10;i++){  //loop=for, inicializa com valor 0,i menor ou igual 10 ,i++ incrementa ===criando 11 div sections na pagina contagem como sempre por '0'
+        var div = document.createElement('div'); //cria variavel div, criado dinamicamente 
+        div.onclick = function(){  //ao cricar na div criada..
+            alert("você clicou no elemento numero " + i)//gera um alert saindo numero=i por 'for' que mostra numero total divs '11'
+        }
+        document.getElementsByTagName('section')[0].appendChild(div);//adiciona no codigo section0 só tem uma,appendChild div criado acima add como filho..
+    }*/
+       
+    for(let i=0;i<=10;i++){  //loop=for, inicializa com valor 0,i menor ou igual 10 ,i++ incrementa ===criando 11 div sections na pagina contagem como sempre por '0'
+        let div = document.createElement('div'); //cria variavel div, criado dinamicamente 
+        div.onclick = function(){  //ao cricar na div criada..
+            alert("você clicou no elemento numero " + i)//gera um alert saindo numero=i por 'for' que mostra numero de divs 0 até 10 cada clique um numero de sua posição por causa do 'let' diferente de 'var'
+        }
+        document.getElementsByTagName('section')[0].appendChild(div);//adiciona no codigo section0 só tem uma,appendChild div criado acima add como filho..
+    }
+
+        </script>
+    </head>
+    <body>
+    
+        <section></section>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script type="text/babel">
+
+        class Poligono {//classe onde fica contrutor embaixo...
+            constructor(lados, altura, largura, nome) { //construtor com dados do produto que sera instanciado
+                this.lados = lados;
+                this.altura = altura;
+                this.largura = largura;
+                this.nome = nome;
+
+            }
+
+            escreverCaracteristicas() { //metodo o que o objeto faz..conecção de tudo 'class e new de instanciamento'
+                console.log(`eu sou um ${this.nome} tenho ${this.lados} lados e tenho como largura ${this.largura} e altura ${this.altura}`);
+            }
+        }
+
+                        /*herança=herde caracteristicas de outro elemento como abaixo*/
+        class Quadrado extends Poligono{//extends= estende as caracteristicas de um objeto ex: mesa de jantar extends mesa
+            constructor(altura, largura){//dados
+                super(4,altura, largura, 'Quadrado'); //super chama a classe pai dele no caso class poligono
+
+            }
+        }
+        
+        
+        var pentagono = new Poligono(5,'5cm','5cm','pentagono')//instanciando produto novo objeto(dados do produto)
+        pentagono.escreverCaracteristicas();//saida final dos dados
+
+        var quadrad = new Quadrado(10,10)
+        quadrad.escreverCaracteristicas();
+        
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

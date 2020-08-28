@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script type="text/babel">
+        
+            var salada = ["uva","Maçã","Pera","Mamão"]; //variavel com array
+            console.log(salada[1]); //mostra maça pois contagem do array começa de 0,1,2,3 maçã segunda...
+            console.log(salada[0]); //mostra a uva q é primeira do array
+
+            
+        /*com array no proprio nome da variavel*/   console.log("array em variavel abaixo:")
+            var [primeiro,shinigami,proximo,,doritos,...verduras] = ["uva","Maçã","Pera","Mamão","Abacate","tomate","alface","cebola"]; //variavel com array
+            console.log(primeiro); //mostra uva pois contagem do array de ambos começa de 0,1,2,3...
+            console.log(shinigami); //mostra a maça q é segunda do array e vai de proximo em proxima fruta
+            console.log(proximo);//terceira fruta Pera
+            console.log(doritos); //na linha 13 =,,doritos pulou Mamão e foi direto para Abacate
+            console.log(verduras)//sai todas as outras verduras que faltaram por causa 3 pontinhos ...verduras linha13
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

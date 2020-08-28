@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script type="text/babel">
+        /*
+            var objeto = {tipo:"Caneta",cor:"Azul",marca:"Bic",preco:2} // criando objeto comum
+               
+            console.log(objeto.tipo);//saindo caneta
+            console.log(objeto.preco);//saindo 2
+*/
+            
+            var {tipo,preco,tampas} = {// criando objeto com variavel e array conectada ao console
+                tipo:"Caneta", cor:"Azul", marca:"Bic", preco:2,   //dados do objt...
+                tampas:["Redonda","quadrada"] //array dentro de objeto
+            } // criando objeto com variavel conectada ao console
+            
+            console.log(tipo);//saindo caneta
+            console.log(preco);//saindo 2
+            console.log(tampas[1]);//saindo quadrada a segunda opção é [1]
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Curso de EcmaScript 6.0</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser-polyfill.js"></script><!--outra biblioteca js para ter as funçoes generators-->
+
+        <script type="text/babel">
+        /*
+        function* gen(){ //function*=função generator=objt retorna uma função geradora
+            yield uva; //yield comando para colocar valores ou yield é usada para pausar e resumir uma generator function
+            yield 2;
+            yield 3;
+        }
+
+        var g = gen();
+
+        console.log(g.next()); //sai Object(value:"uva" done:false,,  passa next vira intereitor
+        console.log(g.next());//sai Object(value:2 done:false..
+        console.log(g.next());//3
+        console.log(g.next());//sai no cosole done:true pois é o ultimo g generator
+*/
+        function* idCriador() {
+            var i=0;//começa por 0
+            while(true) {//loop
+                yield i++ //contagem
+            }
+        }
+        
+        var g = idCriador();//referencia com g para saida abaixo:
+
+        console.log(g.next().value);//sai 0
+        console.log(g.next().value);// 1
+        console.log(g.next().value);//2
+        console.log(g.next().value);//3
+        console.log(g.next().value);//4
+
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
