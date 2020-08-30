@@ -32,7 +32,7 @@ this.c = 456
 this.d = false
 this.e = 'teste'
 
-console.log(a)
+console.log(a) //saida linha 29 let
 console.log(global.b)//acessando com global b
 console.log(this.c)//acessa pq esta como this
 console.log(module.exports.c)//sai 456 exporta modulo
