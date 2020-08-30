@@ -7,3 +7,4 @@ const divisao = d / a
 const modulo = a % 2 //resto da divisão
 
 console.log(soma, subtracao, multiplicacao, -divisao, modulo)
+//-divisão fica negativo por causa  '-'
