@@ -6,10 +6,10 @@ valores[4] = 10
 console.log(valores)//agora possui um indice 4
 console.log('total arrays lenght=' + valores.length)//total arrays
 
-valores.push({id:3}, false, null,'teste')//aleatorio no msm array
-console.log('aleatorio:' + valores)
+valores.push({id:3}, false, null,'teste')//push=adicionar novos elementos no array(objeto,boolean,nulo,stringtest)
+console.log('aleatorio:' + valores)//sai valores array linha 1 + linha 9,,id3=objeto
 
-console.log('pop: ' + valores.pop())//retorna o ultimo valor do array
+console.log('pop: ' + valores.pop())//retorna o ultimo valor do array com pop é 'teste'
 delete valores[0]//delete= remove indice 0 primeiro array do console
 console.log('deleta indice 0:' + valores)
 
