@@ -26,9 +26,9 @@ pessoa.verificarescopo = function(){return this === window}
 pessoa.verificarescopo()
 false//this nao é igual ao window e sim igual pessoa*/
 
-let a = 3
+let a = 3 //let é local dentro do arquivo e não é exportada
 global.b = 123
-this.c = 456
+this.c = 456 //colocando this. algum valor significa q vai exportar valor de outro arquivo utilizando module.exports..
 this.d = false
 this.e = 'teste'
 
@@ -36,11 +36,11 @@ console.log(a) //saida linha 29 let
 console.log(global.b)//acessando com global b
 console.log(this.c)//acessa pq esta como this
 console.log(module.exports.c)//sai 456 exporta modulo
-console.log(module.exports=== this)//true
-console.log(module.exports)// sai resultado c d e
+console.log(module.exports=== this)//true,, module.exports exporta com o uso de this
+console.log(module.exports)// sai resultado c d e q possuem this
 
 //criando variavel sem var ou let
 abc = 3//criando uma variavel no node global,, nao fazer isto!!
 console.log(global.abc)//fugir do escopo global.. pode enrola o codigo fonte
 
-// module.exports = { e: 456, f: false, g: 'teste' }
+// module.exports = { e: 456, f: false, g: 'teste' } //outra forma de ser feita tbm...
