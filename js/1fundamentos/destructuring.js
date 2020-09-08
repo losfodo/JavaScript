@@ -43,7 +43,7 @@ function rand({ min = 0, max = 1000 }) {//função retorna numero aleatorio 0 a 
 }
 
 const obj = { max: 50, min: 40 }//constante 50 a 40 limite aleatorio
-console.log(rand(obj))//saida da const obj
+console.log(rand(obj))//saida da const obj linha 45
 console.log(rand({ min: 955 }))//minimo 955 a 1000
 console.log(rand({}))//0 a 1000 
 //console.log(rand()) //gera erro pq estrutura algo undefined ou nada
