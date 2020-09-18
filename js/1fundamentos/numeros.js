@@ -15,7 +15,7 @@ const media = total / (peso1 + peso2)
 console.log(media.toFixed(2))//toFixed:diminuir quantidade de numeros quebrados 7,82
 console.log(media.toString(2))//converte o valor para binario com tostring(2)
 console.log(media.toString())//retorna como sendo uma string sendo numenro ou nao
-console.log(typeof media)//aqui apenas undefined
+console.log(typeof media)//typeof da media e um number
 console.log(typeof Number)//number n maiusculo é função
 
 console.log("calculos estranhos abaixos:")
@@ -28,7 +28,7 @@ console.log('3' + 2)//concatena e não soma prioridade a string = 32
 console.log('3' - 2)//se for menos subtrai=1
 
 /*uso do Math= */
-const raio = 5.6
+const raio = 5.6 //valor do raio..
 const area = Math.PI * Math.pow(raio, 2)//Math.PI=3.14159 * Math.pow=calcula a potencia 5.6²
 
 console.log("uso do Math: ", area)//const area resultado calc
